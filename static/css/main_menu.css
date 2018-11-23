@@ -1,0 +1,64 @@
+
+
+#welcomeHeader {
+    padding-top: 30%;
+
+}
+
+#intro\ text {
+    padding-right: 20%;
+}
+
+@media(min-width:768px) {
+    #nav-side-menu {
+        background-color: darkred;
+        position: fixed;
+        right: 0;
+        min-height: 100vh;
+    }
+
+    #navbarContents {
+        padding-top: 200%;
+        alignment: center;
+    }
+
+    #nameText{
+        padding-right: 30%;
+    }
+
+    li {
+        list-style-type: none;
+    }
+}
+
+@media(max-width:768px){
+    #nav-side-menu{
+        background-color: darkred;
+        min-height:auto;
+        max-height:20vh;
+        position:fixed;
+    }
+
+    li {
+        list-style-type: none;
+        text-align: center;
+    }
+
+}
+
+
+a {
+    color: white;
+}
+
+@media all and (max-width: 768px) {
+    body {
+        font-size: 0.8em;
+    }
+}
+
+
+
+
+
+
