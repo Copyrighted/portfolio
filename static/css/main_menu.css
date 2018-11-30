@@ -37,12 +37,11 @@
     #nav-side-menu{
         background-color: darkred;
         max-height:30%;
-        position:fixed;
-
+        overflow:hidden;
     }
 
     #welcomeMessage{
-        padding-top:40%;
+        padding-top:10%;
         text-align:center;
         height:30%;
     }
