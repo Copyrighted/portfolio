@@ -15,17 +15,20 @@
             <h1 id = "login-text">
                 로그인
             </h1>
-            <form>
+            <form action="" method="post">
                 <div class="form-group">
                     <label for="exampleInputEmail1">이메일</label>
-                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="이메일">
+                    <input type="text" name="username" class="form-control" placeholder="이메일" value={{ request.form.username }}>
                 </div>
                 <div class="form-group">
                     <label for="exampleInputPassword1">암호</label>
-                    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="암호">
+                    <input type="password" name="password" class="form-control" placeholder="암호" value={{ request.form.password }}>
                 </div>
-                <button type="submit" class="btn btn-primary">Submit</button>
+                <button type="submit" class="btn btn-primary" value="Login  ">Submit</button>
             </form>
+            {% if error %}
+                <p class="error"><strong>Error:</strong> {{ error }}
+            {% endif %}
         </div>
     </div>
 </div>
