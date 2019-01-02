@@ -16,6 +16,7 @@
                 로그인
             </h1>
             <form action="" method="post">
+                {{ form.hidden_tag() }}
                 <div class="form-group">
                     <label for="exampleInputEmail1">이메일</label>
                     <input type="text" name="username" class="form-control" placeholder="이메일" value={{ request.form.username }}>
