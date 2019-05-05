@@ -11,7 +11,7 @@
     }
 
     #navbarContents {
-        padding-top: 220%;
+        padding-top: 200%;
         padding-right: 10%;
         alignment: center;
         font-size:25px;
@@ -20,7 +20,7 @@
 
     #nameText{
         padding-right: 30%;
-        font-size:35px;
+        font-size:150%;
         font-family: 'Spectral SC', serif;
     }
 
@@ -58,6 +58,8 @@
 
     #nameText{
         font-family: 'Spectral SC', serif;
+        font-size:70%;
+
     }
 
     li {
@@ -76,9 +78,6 @@ a {
 @media all and (max-width: 768px) {
     body {
         font-size: 0.8em;
-
-
-
     }
 }
 
