@@ -6,7 +6,7 @@ from webapp.models import User
 
 @app.route('/', methods=['GET'])
 def render_main():
-    return render_template('main.html')
+    return render_template('index.html')
 
 @app.route('/notes', methods=['GET'])
 def render_notes():
