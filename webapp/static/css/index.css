@@ -1,7 +1,4 @@
 
-
-
-
 @media(min-width:768px) {
     #nav-side-menu {
         background-color: darkred;
@@ -11,7 +8,7 @@
     }
 
     #navbarContents {
-        padding-top: 220%;
+        padding-top: 210%;
         padding-right: 10%;
         alignment: center;
         font-size:25px;
@@ -30,7 +27,7 @@
     }
 
     #welcomeHeader {
-        padding-top: 30%;
+        padding-top: 20%;
         font-family: 'Source Sans Pro', sans-serif;
         font-size: 50px;
     }
