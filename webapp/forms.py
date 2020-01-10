@@ -7,15 +7,14 @@ class LoginForm(FlaskForm):
     username = StringField('신분증', validators=[DataRequired()])
     password = PasswordField('암호', validators=[DataRequired()])
     remember_me = BooleanField('날 기억해')
-    submit = SubmitField('암호')
+    submit = SubmitField('Submit')
 
 
 class RegistrationForm(FlaskForm):
     username = StringField('Username', validators=[DataRequired()])
     email = StringField('Email', validators=[DataRequired(), Email()])
     password = PasswordField('Password', validators=[DataRequired()])
-    password2 = PasswordField(
-        'Repeat Password', validators=[DataRequired(), EqualTo('password')])
+    password2 = PasswordField('Repeat Password', validators=[DataRequired(), EqualTo('password')])
     submit = SubmitField('Register')
 
     def validate_username(self, username):
@@ -30,4 +29,4 @@ class RegistrationForm(FlaskForm):
 
 class PostForm(FlaskForm):
     post = TextAreaField('Say something', validators=[DataRequired(), Length(min=0, max=500)])
-    submit = SubmitField('submit')
+    submit = SubmitField('Submit')
