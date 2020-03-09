@@ -2,10 +2,10 @@ from datetime import datetime
 
 from werkzeug.security import generate_password_hash, check_password_hash
 
-from webapp import db, login
+from webapp import login, db
 
 from flask_login import UserMixin
-
+                        
 class User(UserMixin, db.Model):
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String(64), index=True, unique=True)
@@ -23,10 +23,10 @@ class User(UserMixin, db.Model):
 
 class Post(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    body = db.Column(db.String(140))
+    body = db.Column(db.String(500))
     timestamp = db.Column(db.DateTime, index=True, default=datetime.utcnow())
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
-    title = db.Column(db.String(500))
+    title = db.Column(db.String(256))
 
     def __repr__(self):
         return '<Post {}>'.format(self.body)
