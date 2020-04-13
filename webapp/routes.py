@@ -4,9 +4,10 @@ from flask_admin.helpers import is_safe_url
 from werkzeug.urls import url_parse
 
 from webapp import app, db
-from webapp.forms import LoginForm
+from webapp.forms import *
 from flask_login import current_user, login_user, logout_user, login_required
-from webapp.models import User
+from webapp.models import User, Post
+
 
 @app.route('/', methods=['GET'])
 def render_main():
@@ -17,14 +18,20 @@ def render_notes():
     return render_template('projects.html')
 
 
-@app.route('/options', methods=['GET'])
+@app.route('/options', methods=['GET', 'POST'])
 @login_required
 def render_options():
-    return render_template('options.html')
+    form = PostForm()
+    if form.validate_on_submit():
+        post = Post(body=form.post.data, author=current_user)
+        db.session.add(post)
+        db.session.commit()
+        flash('Your post is now live!')
+        return redirect(url_for('render_notes'))
+    return render_template('options.html', form=form)
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
-
     if current_user.is_authenticated:
         #todo implement posting/editing page
         return redirect(url_for('render_options'))
@@ -56,6 +63,7 @@ def user(username):
         {'author': user, 'body': 'Test post 1'}
         ]
     return render_template('user.html', user=user, posts=posts)
+
 
 @app.route('/secret')
 def secret():

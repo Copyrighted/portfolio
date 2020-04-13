@@ -10,5 +10,5 @@ class LoginForm(FlaskForm):
     submit = SubmitField('Submit')
 
 class PostForm(FlaskForm):
-    post = TextAreaField('Say something', validators=[DataRequired(), Length(min=0, max=500)])
+    post = TextAreaField('Say something', validators=[DataRequired(), Length(min=0, max=2000)])
     submit = SubmitField('Submit')
