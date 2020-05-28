@@ -8,7 +8,6 @@
 <div>
     <href>Edit post</href>
     <href>Delete post</href>
-
     {% block content %}
     <h1>Hi, {{ current_user.username }}!</h1>
     <form action="" method="post">
@@ -16,7 +15,7 @@
         <p>
             {{ form.post.label }}<br>
             {{ form.post(cols=32, rows=4) }}<br>
-            {% for error in form.post.errors %}
+            {% for error in form.post.errors %}1
             <span style="color: red;">[{{ error }}]</span>
             {% endfor %}
         </p>
@@ -24,7 +23,7 @@
     </form>
     {% for post in posts %}
     <p>
-    {{ post.author.username }} says: <b>{{ post.body }}</b>
+    <b>{{ post.body }}</b>
     </p>
     {% endfor %}
 {% endblock %}
