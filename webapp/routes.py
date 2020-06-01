@@ -20,8 +20,35 @@ def render_notes():
 @login_required
 def render_options():
     form = PostForm()
+
+    if form.is_submitted():
+         print("submitted")
+    # if not form.validate():
+    #     print(form.validate())
+
+    print("CSRF FORM HIDDEN TAG " + form.hidden_tag())
+    print(session['csrf_token'])
+    print(session)
+
+    print(form.validate_on_submit())
+
+    print(form.errors)
+
+    #
+    #
+    # print(form.errors)
+    #
+    #
+    #
+    # print("errors ", form.errors)
+
+
+    #print(form.post.data)
+
+
     if form.validate_on_submit():
-        post = Post(id=uuid.uuid4(),author=session["username"], body=form.post.data,timestamp=datetime.datetime.utcnow(), title = None, user_id=session.get("_user_id"))
+        print(session)
+        post = Post(id=int(str(uuid.uuid4().int)[:16]),author=session["username"], body=form.post.data,timestamp=datetime.datetime.utcnow(), title = None, user_id=session.get("_user_id"))
         db.session.add(post)
         db.session.commit()
         flash('Your post is alive!')
@@ -31,10 +58,14 @@ def render_options():
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
+
+
+
     if current_user.is_authenticated:
         #todo implement posting/editing page
         return redirect(url_for('render_options'))
     form = LoginForm()
+
 
     if form.validate_on_submit():
         user = User.query.filter_by(username=form.username.data).first()
@@ -47,11 +78,12 @@ def login():
         if not next_page or url_parse(next_page).netloc != '':
             next_page = url_for('render_options')
         flash('Logged in successfully')
-        session["username"] = user.username
+        session["username"]=form.username.data
         return redirect(next_page)
     return render_template('login.html', title='Sign In', form=form)
 
 @app.route('/logout')
+@login_required
 def logout():
     logout_user()
     return redirect(url_for('render_notes'))

@@ -28,9 +28,9 @@ class User(UserMixin, db.Model):
         return '<User {}>'.format(self.username)
 
 class Post(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
+    id = db.Column(db.BIGINT, primary_key=True)
     author = db.Column(db.String(50))
-    body = db.Column(db.String(500))
+    body = db.Column(db.TEXT)
     timestamp = db.Column(db.DateTime, index=True, default=datetime.utcnow())
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
     title = db.Column(db.String(256))

@@ -1,5 +1,4 @@
 from getpass import getpass
-
 from webapp import app, db
 import bcrypt
 from webapp.models import User, Post
@@ -21,7 +20,9 @@ def main():
         username = input()
         print('Enter email address: ')
         email = input()
+        print("Enter Password")
         password = getpass()
+        print("Enter password again")
         assert password == getpass('Password (again):')
         password = password.encode('utf-8')
         salt = bcrypt.gensalt()
