@@ -34,33 +34,20 @@ def render_options():
 
     print(form.errors)
 
-    #
-    #
-    # print(form.errors)
-    #
-    #
-    #
-    # print("errors ", form.errors)
-
-
-    #print(form.post.data)
-
 
     if form.validate_on_submit():
         print(session)
+
         post = Post(id=int(str(uuid.uuid4().int)[:16]),author=session["username"], body=form.post.data,timestamp=datetime.datetime.utcnow(), title = None, user_id=session.get("_user_id"))
         db.session.add(post)
         db.session.commit()
-        flash('Your post is alive!')
+
         return redirect(url_for('render_notes'))
 
     return render_template('options.html', form=form)
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
-
-
-
     if current_user.is_authenticated:
         #todo implement posting/editing page
         return redirect(url_for('render_options'))
@@ -87,16 +74,6 @@ def login():
 def logout():
     logout_user()
     return redirect(url_for('render_notes'))
-
-@app.route('/user/<username>')
-@login_required
-def user(username):
-    user = User.query.filter_by(username=username).first_or_404()
-    posts = [
-        {'author': user, 'body': 'Test post 1'}
-        ]
-    return render_template('user.html', user=user, posts=posts)
-
 
 @app.route('/secret')
 def secret():
