@@ -13,6 +13,8 @@
     <h1>Hi, {{ current_user.username }}!</h1>
     <form method="POST">
         {{ form.hidden_tag() }}
+        {{ form.title.label }}
+        {{ form.title(size=64) }}
         <label for="summernote"></label><textarea id="summernote" name="post"></textarea>
         <p>{{ form.submit() }}</p>
     </form>

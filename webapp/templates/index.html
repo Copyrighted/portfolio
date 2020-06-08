@@ -19,6 +19,8 @@
     <title>SchefBlog</title>
 </head>
 <body>
+
+
 <div class="container-fluid">
     <div class="row">
         <div id="welcomeMessage" class = "col-xs-8 offset-xs-2 col-md-8 offset-md-2 order-2">
@@ -27,15 +29,17 @@
                 You're at Tyler Scheffler's Computer Science/Software Engineering blog.
                 <br />
                 <br />
-                Currently studying Computer Science at Washington State University and graduating in Spring 2020.
-                I'm starting this blog to write about my projects and anything I find interesting in CS.
+                Recent graduate of Computer Science from WSU.
+                I have started this blog to write about projects and anything I find interesting in CS.
 
             </p>
         </div>
 
-        {% extends "base.html" %}
-        {% block content %}
-        {% endblock %}
+{% extends "base.html" %}
+{% block sidebar %}
+{% endblock %}
+
+
 
     </div>
 </div>

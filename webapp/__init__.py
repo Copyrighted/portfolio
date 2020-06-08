@@ -3,15 +3,15 @@ from flask_mail import Mail
 
 from webapp.config import Config
 from flask_sqlalchemy import SQLAlchemy
-from flask_migrate import Migrate
 from flask_login import LoginManager
 from flask_bootstrap import Bootstrap
 from flask_wtf.csrf import CSRFProtect
 from flask_migrate import Migrate
+from sqlalchemy import create_engine
+from sqlalchemy.orm import sessionmaker
 
 
 migrate = Migrate(compare_type=True)
-
 app = Flask(__name__)
 migrate.init_app(app)
 bootstrap = Bootstrap(app)
@@ -23,9 +23,12 @@ login = LoginManager(app)
 login.session_protection = 'strong'
 login.login_view = 'login'
 migrate = Migrate(app, db)
+Session = sessionmaker()
+engine = create_engine(Config.SQLALCHEMY_DATABASE_URI)
+Session.configure(bind=engine)
+session = Session()
+
 mail = Mail(app)
-
-
 
 
 from webapp import routes, models

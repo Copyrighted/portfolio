@@ -27,9 +27,11 @@
         <div id="welcomeMessage" class = "col-xs-8 offset-xs-2 col-md-8 offset-md-2 order-2">
             <h1 id = "notesHeader"><b> Notes </b></h1>
             <p id = "year">
-                2019
-                <br />
-                <br />
+                <ul>
+                {% for post in posts %}
+                <li>{{  post|safe }}</li>
+                {% endfor %}
+                </ul>
             </p>
         </div>
 
