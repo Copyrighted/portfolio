@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+        {% extends "base.html" %}
+        {% block title %}
+            {{ post_title }}
+        {% endblock %}
+        {% block body %}
+        <p>Created {{ post_timestamp }}</p>
+            {{ post_body|safe }}
+        {% endblock %}
+
+        {% block sidebar %}
+        {% endblock %}
+
+
+</body>
+</html>

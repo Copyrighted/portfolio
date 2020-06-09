@@ -3,7 +3,6 @@ import bcrypt
 from webapp import login, db, session
 from flask_login import UserMixin
 
-
 class User(UserMixin, db.Model):
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String(64), index=True, unique=True)
@@ -41,11 +40,9 @@ class Post(db.Model):
         return session.query(Post.id, Post.title,Post.body,Post.timestamp).all()
 
     @classmethod
-    def generate_links(cls):
-        links = []
-        session.query(Post.id, Post.title, Post.timestamp).all()
-
-
+    def retrieve_post(cls, post_id):
+        p = session.query(Post).get(post_id)
+        return (p.title,p.body, p.timestamp)
 
     def __repr__(self):
         return '<Post {}>'.format(self.body)
