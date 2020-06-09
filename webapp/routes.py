@@ -17,8 +17,7 @@ def render_notes():
     posts = []
     print(post_list)
     for post in post_list:
-        if post[1] is not None:
-            posts.append("<a href='http://127.0.0.1:5000{url}' style='color:black;'><b>{title}</b></a>".format(url=url_for("post_content",id=post[0]),title = post[1]))
+        posts.append("<a href='http://127.0.0.1:5000/post/{title}/{id}' style='color:black;'><b>{title}</b></a>".format(id = post[0],title = post[1]))
     print(posts)
     return render_template('projects.html', posts=posts)
 
@@ -66,8 +65,6 @@ def logout():
     logout_user()
     return redirect(url_for('render_notes'))
 
-@app.route('/post/<int:id>/', methods=['GET'])
-def post_content(id):
-    post_info = Post.retrieve_post(id)
-    print(post_info)
-    return render_template("post_content.html", post_title=post_info[0],post_body=post_info[1], post_timestamp=post_info[2])
+@app.route('/post/<int:id>/<string:title>', methods=['GET'])
+def post(id, title):
+    return render_template("post.html")
