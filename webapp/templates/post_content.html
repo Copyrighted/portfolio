@@ -17,11 +17,10 @@
 <div class="container-fluid">
     <div class="row">
         <div id="welcomeMessage" class="col-xs-8 offset-xs-2 col-md-8 offset-md-2 order-2">
-            <h1 id="welcomeHeader"><b> Welcome to my site! </b></h1>
+            <h1 id="welcomeHeader"><b> {{ post_title }} </b></h1>
             <p id="intro text">
-                {{ post_title }}
-                {{ post_body }}
-                {{ post_timestamp }}
+                Posted: {{ post_timestamp }}
+                {{ post_body|markdown }}
 
             </p>
         </div>
