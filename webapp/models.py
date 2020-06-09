@@ -41,9 +41,9 @@ class Post(db.Model):
         return session.query(Post.id, Post.title,Post.body,Post.timestamp).all()
 
     @classmethod
-    def generate_links(cls):
-        links = []
-        session.query(Post.id, Post.title, Post.timestamp).all()
+    def retrieve_post(cls, post_id):
+        p = session.query(Post).get(post_id)
+        return (p.title, p.body, p.timestamp)
 
 
 
