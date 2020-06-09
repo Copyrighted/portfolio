@@ -27,6 +27,7 @@ Session = sessionmaker()
 engine = create_engine(Config.SQLALCHEMY_DATABASE_URI)
 Session.configure(bind=engine)
 session = Session()
+app.static_folder = 'static'
 
 mail = Mail(app)
 

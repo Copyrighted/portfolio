@@ -1,0 +1,91 @@
+
+@media(min-width:768px) {
+    #nav-side-menu {
+        background-color: darkred;
+        position: fixed;
+        right: 0;
+        min-height: 100%;
+    }
+
+    #navbarContents {
+        padding-top: 210%;
+        padding-right: 10%;
+        alignment: center;
+        font-size:25px;
+        padding-bottom:10%;
+    }
+
+    #nameText{
+        padding-right: 30%;
+        font-size:150%;
+        font-family: 'Spectral SC', serif;
+    }
+
+    li {
+        list-style-type: none;
+        font-family: 'Spectral SC', serif;
+    }
+
+    #welcomeHeader {
+        padding-top: 20%;
+        font-family: 'Source Sans Pro', sans-serif;
+        font-size: 50px;
+    }
+
+    #intro\ text {
+        padding-right: 20%;
+        font-family: 'Source Sans Pro', sans-serif;
+        font-size:30px;
+    }
+}
+
+@media(max-width:768px){
+    #nav-side-menu{
+        background-color: darkred;
+        max-height:30%;
+        overflow:hidden;
+    }
+
+    #welcomeMessage{
+        padding-top:10%;
+        text-align:center;
+        height:30%;
+        font-family: 'Source Sans Pro', sans-serif;
+    }
+
+    #nameText{
+        font-family: 'Spectral SC', serif;
+        font-size:70%;
+
+    }
+
+    li {
+        list-style-type: none;
+        text-align: center;
+        font-family: 'Spectral SC', serif;
+    }
+
+}
+
+
+a {
+    color: white;
+}
+
+@media all and (max-width: 768px) {
+    body {
+        font-size: 0.8em;
+    }
+}
+
+.fas{
+    color:white;
+}
+
+.fab{
+    color:white;
+}
+
+
+
+
