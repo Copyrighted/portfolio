@@ -1,11 +1,10 @@
-import datetime, bcrypt, uuid, markdown
+import datetime, bcrypt, uuid
 from flask import render_template, redirect, url_for, request, flash, session
 from werkzeug.urls import url_parse
 from webapp import app, db
 from webapp.forms import PostForm, LoginForm
 from flask_login import current_user, login_user, logout_user, login_required
 from webapp.models import User, Post
-
 
 @app.route('/', methods=['GET'])
 def render_main():
@@ -18,23 +17,28 @@ def render_notes():
     print(post_list)
     for post in post_list:
         if post[1] is not None:
-            posts.append("<a href='http://127.0.0.1:5000{url}' style='color:black;'><b>{title}</b></a>".format(url=url_for("post_content",id=post[0]),title = post[1]))
+            posts.append("<a href='http://127.0.0.1:5000{url}' style='color:black;'><b>{title}</b></a>".format(url=url_for("get_content",id=post[0]),title = post[1]))
     print(posts)
     return render_template('projects.html', posts=posts)
 
 
-@app.route('/options', methods=['GET', 'POST'])
+@app.route('/publish_post', methods=['GET', 'POST'])
 @login_required
-def render_options():
+def render_publish():
     form = PostForm()
 
     if form.validate_on_submit():
-        post = Post(id=int(str(uuid.uuid4().int)[:16]),author=session["username"], body=form.post.data,timestamp=datetime.datetime.utcnow(), title = form.title.data, user_id=session.get("_user_id"))
+        post = Post(id=int(str(uuid.uuid4().int)[:16]),author=session["username"], body=form.post.data,timestamp=datetime.datetime.now(), title = form.title.data, user_id=session.get("_user_id"))
         db.session.add(post)
         db.session.commit()
         return redirect(url_for('render_notes'))
 
-    return render_template('options.html', form=form)
+    return render_template('publish_post.html', form=form)
+
+@app.route('/options', methods=['GET'])
+@login_required
+def render_options():
+    return render_template('options.html')
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
@@ -67,7 +71,7 @@ def logout():
     return redirect(url_for('render_notes'))
 
 @app.route('/post/<int:id>/', methods=['GET'])
-def post_content(id):
+def get_content(id):
     post_info = Post.retrieve_post(id)
     print(post_info)
     return render_template("post_content.html", post_title=post_info[0],post_body=post_info[1], post_timestamp=post_info[2])
