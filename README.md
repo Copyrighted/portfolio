@@ -49,6 +49,7 @@ Set up Python Virtual Environment, install Flask and other prerequisites
 * [SQLite](https://sqlite.org/index.html) - Database used
 * [Summernote](https://summernote.org/) - Markdown Editor used
 * [Jinja2](https://jinja.palletsprojects.com/en/2.11.x/) - Jinja2 used for templating
+* [Bcrypt](http://bcrypt.sourceforge.net/) - Bcrypt used to salt/hash passwords
 
 ## Authors
 
