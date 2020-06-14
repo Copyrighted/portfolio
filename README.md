@@ -10,6 +10,7 @@ Deployment TBD
 ### Prerequisites
 
 Python 3.x
+
 Flask
 
 ### Installing
@@ -38,7 +39,7 @@ Set up Python Virtual Environment, install Flask and other prerequisites
 
 ## Deployment
 
-Add additional notes about how to deploy this on a live system
+-Work in Progress, probably going to use Docker-
 
 ## Built With
 
@@ -57,6 +58,8 @@ This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md
 
 ## Acknowledgments
 
-Thanks to Miguel Grinberg for the great tutorial and book. Link: https://blog.miguelgrinberg.com/index
-Thanks to hackersandslackers.com for indepth info on Flasks inner workings. Link: https://hackersandslackers.com/managing-user-session-variables-with-flask-sessions-and-redis/
-Thanks Professor Stackoverflow
+Thanks to Miguel Grinberg for the great tutorial and book. [Miguel's Blog](https://blog.miguelgrinberg.com/index)
+
+Thanks to hackersandslackers.com for in depth info on Flasks inner workings. [HackersandSlackers](https://hackersandslackers.com/managing-user-session-variables-with-flask-sessions-and-redis/)
+
+Thanks Stackoverflow
