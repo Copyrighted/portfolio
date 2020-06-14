@@ -1,7 +1,8 @@
 # Flask Blog Website
 
-Personal flask blog that supports registering/login of an admin user.  Users can create posts in a Markdown editor, delete and update of posts.
--Note:Still fleshing out the readme-
+Personal flask blog that supports registering/login of an admin user (can easily expand this to normal users).
+
+Users can create posts in a Markdown editor, delete and update of posts.
 
 ## Getting Started
 
@@ -47,6 +48,7 @@ Set up Python Virtual Environment, install Flask and other prerequisites
 * [SQLAlchemy](https://www.sqlalchemy.org/) - ORM Used
 * [SQLite](https://sqlite.org/index.html) - Database used
 * [Summernote](https://summernote.org/) - Markdown Editor used
+* [Jinja2](https://jinja.palletsprojects.com/en/2.11.x/) - Jinja2 used for templating
 
 ## Authors
 
