@@ -6,8 +6,6 @@ Users can create posts in a Markdown editor, delete and update of posts.
 
 ## Getting Started
 
-Deployment TBD
-
 ### Prerequisites
 
 Python 3.x
