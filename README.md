@@ -9,15 +9,10 @@ Deployment TBD
 
 ### Prerequisites
 
+Python 3.x
 Flask
 
-```
-Give examples
-```
-
 ### Installing
-
-A step by step series of examples that tell you how to get a development env running
 
 Install Python 3.x
 
@@ -48,13 +43,9 @@ Add additional notes about how to deploy this on a live system
 ## Built With
 
 * [Flask](https://flask.palletsprojects.com/en/1.1.x/) - The web framework used
-* [SQLAlchemy] (https://www.sqlalchemy.org/) - ORM Used
-* [SQLite] (https://sqlite.org/index.html) - Database used
+* [SQLAlchemy](https://www.sqlalchemy.org/) - ORM Used
+* [SQLite](https://sqlite.org/index.html) - Database used
 * [Summernote](https://summernote.org/) - Markdown Editor used
-
-## Versioning
-
-We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/your/project/tags). 
 
 ## Authors
 
