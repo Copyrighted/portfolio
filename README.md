@@ -2,7 +2,7 @@
 
 Personal flask blog that supports registering/login of an admin user (can easily expand this to normal users).
 
-Users can create posts in a Markdown editor, delete and update of posts.
+Users can create, update and delete posts.
 
 ## Getting Started
 
