@@ -1,6 +1,6 @@
 # Flask Blog Website
 
-Personal flask blog that supports registering/login of an admin user (can easily expand this to normal users).
+Personal flask blog that supports registering/login of an admin user (can easily expand this to non-admin users).
 
 Users can create, update and delete posts.
 
