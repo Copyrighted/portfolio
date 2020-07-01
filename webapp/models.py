@@ -46,7 +46,6 @@ class Post(db.Model):
         return (p.title, p.body, p.timestamp)
 
 
-
     def __repr__(self):
         return '<Post {}>'.format(self.body)
 

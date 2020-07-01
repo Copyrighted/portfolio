@@ -14,11 +14,8 @@ def render_main():
 def render_notes():
     post_list = Post.retrieve_posts()
     posts = []
-    print(post_list)
     for post in post_list:
-        if post[1] is not None:
-            posts.append("<a href='http://127.0.0.1:5000{url}' style='color:black;'><b>{title}</b></a>".format(url=url_for("get_content",id=post[0]),title = post[1]))
-    print(posts)
+        posts.append("<a href='http://127.0.0.1:5000{url}' style='color:black;'><b>{title}</b></a>".format(url=url_for("get_content",id=post[0]),title = post[1]))
     return render_template('projects.html', posts=posts)
 
 
@@ -26,19 +23,48 @@ def render_notes():
 @login_required
 def render_publish():
     form = PostForm()
-
     if form.validate_on_submit():
         post = Post(id=int(str(uuid.uuid4().int)[:16]),author=session["username"], body=form.post.data,timestamp=datetime.datetime.now(), title = form.title.data, user_id=session.get("_user_id"))
         db.session.add(post)
         db.session.commit()
         return redirect(url_for('render_notes'))
-
     return render_template('publish_post.html', form=form)
+
+@app.route('/edit', methods=['GET', 'POST'])
+@login_required
+def render_edit():
+    form = PostForm()
+    if form.validate_on_submit():
+        post = Post(id=int(str(uuid.uuid4().int)[:16]),author=session["username"], body=form.post.data,timestamp=datetime.datetime.now(), title = form.title.data, user_id=session.get("_user_id"))
+        db.session.add(post)
+        db.session.commit()
+        return redirect(url_for('render_notes'))
+    return render_template('publish_post.html', form=form)
+
+@app.route('/delete_post', methods=['GET', 'POST'])
+@login_required
+def render_delete():
+    post_list = Post.retrieve_posts()
+    posts = []
+    for post in post_list:
+        posts.append("<a href='http://127.0.0.1:5000{url}' style='color:black;'><b>{title}</b></a>".format(
+            url=url_for("delete_post", id=post[0]), title=post[1]))
+
+    return render_template('delete_post.html', posts=posts)
+
+@app.route('/delete/<string:id>')
+@login_required
+def delete_post(id):
+    post = 1
+    db.session.delete(post)
+    db.session.commit()
+    flash('Post deleted succesfully deleted!')
+    return redirect(url_for('render_delete'))
 
 @app.route('/options', methods=['GET'])
 @login_required
 def render_options():
-    return render_template('options.html')
+    return render_template('dashboard.html')
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
