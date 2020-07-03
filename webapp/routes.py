@@ -24,7 +24,7 @@ def render_notes():
 def render_publish():
     form = PostForm()
     if form.validate_on_submit():
-        post = Post(id=int(str(uuid.uuid4().int)[:16]),author=session["username"], body=form.post.data,timestamp=datetime.datetime.now(), title = form.title.data, user_id=session.get("_user_id"))
+        post = Post(id=int(str(uuid.uuid4().int)[:16]),author=session["username"], body=form.post.data,timestamp=datetime.datetime.now().date(), title = form.title.data, user_id=session.get("_user_id"))
         db.session.add(post)
         db.session.commit()
         return redirect(url_for('render_notes'))
@@ -35,7 +35,7 @@ def render_publish():
 def render_edit():
     form = PostForm()
     if form.validate_on_submit():
-        post = Post(id=int(str(uuid.uuid4().int)[:16]),author=session["username"], body=form.post.data,timestamp=datetime.datetime.now(), title = form.title.data, user_id=session.get("_user_id"))
+        post = Post(id=int(str(uuid.uuid4().int)[:16]),author=session["username"], body=form.post.data,timestamp=datetime.datetime.now().date(), title = form.title.data, user_id=session.get("_user_id"))
         db.session.add(post)
         db.session.commit()
         return redirect(url_for('render_notes'))
@@ -52,27 +52,26 @@ def render_delete():
 
     return render_template('delete_post.html', posts=posts)
 
-@app.route('/delete/<string:id>')
+@app.route('/delete/<string:id>',methods=['GET'])
 @login_required
 def delete_post(id):
-    post = 1
+    post = Post.query.get(int(id))
     db.session.delete(post)
     db.session.commit()
     flash('Post deleted succesfully deleted!')
-    return redirect(url_for('render_delete'))
+    return redirect(url_for('render_options'))
 
-@app.route('/options', methods=['GET'])
+@app.route('/dashboard', methods=['GET'])
 @login_required
 def render_options():
-    return render_template('dashboard.html')
+    posts = Post.retrieve_posts()
+    return render_template('dashboard.html', posts=posts)
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     if current_user.is_authenticated:
-        #todo implement editing/deleting
         return redirect(url_for('render_options'))
     form = LoginForm()
-
 
     if form.validate_on_submit():
         user = User.query.filter_by(username=form.username.data).first()
@@ -84,7 +83,6 @@ def login():
 
         if not next_page or url_parse(next_page).netloc != '':
             next_page = url_for('render_options')
-
         flash('Logged in successfully')
         session["username"]=form.username.data
         return redirect(next_page)
@@ -100,4 +98,4 @@ def logout():
 def get_content(id):
     post_info = Post.retrieve_post(id)
     print(post_info)
-    return render_template("post_content.html", post_title=post_info[0],post_body=post_info[1], post_timestamp=post_info[2])
+    return render_template("post_content.html", post_title=post_info[0],post_body=post_info[1], post_timestamp=post_info[2].date())

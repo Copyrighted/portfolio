@@ -8,8 +8,7 @@ from flask_bootstrap import Bootstrap
 from flask_wtf.csrf import CSRFProtect
 from flask_migrate import Migrate
 from sqlalchemy import create_engine
-from sqlalchemy.orm import sessionmaker
-
+from sqlalchemy.orm import sessionmaker, scoped_session
 
 migrate = Migrate(compare_type=True)
 app = Flask(__name__)
@@ -23,10 +22,11 @@ login = LoginManager(app)
 login.session_protection = 'strong'
 login.login_view = 'login'
 migrate = Migrate(app, db)
-Session = sessionmaker()
+
 engine = create_engine(Config.SQLALCHEMY_DATABASE_URI)
+Session = sessionmaker()
 Session.configure(bind=engine)
-session = Session()
+session = scoped_session(Session)
 Markdown(app)
 app.static_folder = 'static'
 
