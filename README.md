@@ -42,7 +42,7 @@ Set up Python Virtual Environment, install Flask and other prerequisites
 
 ## Built With
 
-* [Flask](https://flask.palletsprojects.com/en/1.1.x/) - The web framework used
+* [Flask](https://flask.palletsprojects.com/en/1.1.x/) - Backend framework used
 * [SQLAlchemy](https://www.sqlalchemy.org/) - ORM Used
 * [SQLite](https://sqlite.org/index.html) - Database used
 * [Summernote](https://summernote.org/) - Markdown Editor used
@@ -59,8 +59,5 @@ This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md
 
 ## Acknowledgments
 
-Thanks to Miguel Grinberg for the great tutorial and book. [Miguel's Blog](https://blog.miguelgrinberg.com/index)
-
 Thanks to hackersandslackers.com for in depth info on Flasks inner workings. [HackersandSlackers](https://hackersandslackers.com/managing-user-session-variables-with-flask-sessions-and-redis/)
 
-Thanks Stackoverflow
