@@ -2,7 +2,7 @@ import datetime, bcrypt, uuid
 from flask import render_template, redirect, url_for, request, flash, session
 from werkzeug.urls import url_parse
 from webapp import app, db
-from webapp.forms import PostForm, LoginForm
+from webapp.forms import PostForm, LoginForm, DeleteForm
 from flask_login import current_user, login_user, logout_user, login_required
 from webapp.models import User, Post
 
@@ -41,31 +41,22 @@ def render_edit():
         return redirect(url_for('render_notes'))
     return render_template('publish_post.html', form=form)
 
-@app.route('/delete_post', methods=['GET', 'POST'])
-@login_required
-def render_delete():
-    post_list = Post.retrieve_posts()
-    posts = []
-    for post in post_list:
-        posts.append("<a href='http://127.0.0.1:5000{url}' style='color:black;'><b>{title}</b></a>".format(
-            url=url_for("delete_post", id=post[0]), title=post[1]))
-
-    return render_template('delete_post.html', posts=posts)
-
-@app.route('/delete/<string:id>',methods=['GET'])
+@app.route('/delete/<string:id>',methods=['POST'])
 @login_required
 def delete_post(id):
-    post = Post.query.get(int(id))
-    db.session.delete(post)
-    db.session.commit()
-    flash('Post deleted succesfully deleted!')
+    form = DeleteForm()
+    if form.validate_on_submit():
+        post = Post.query.get(int(id))
+        db.session.delete(post)
+        db.session.commit()
     return redirect(url_for('render_options'))
 
 @app.route('/dashboard', methods=['GET'])
 @login_required
 def render_options():
     posts = Post.retrieve_posts()
-    return render_template('dashboard.html', posts=posts)
+    delete_form = DeleteForm()
+    return render_template('dashboard.html', posts=posts, delete_form=delete_form)
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():

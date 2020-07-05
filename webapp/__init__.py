@@ -29,7 +29,6 @@ Session.configure(bind=engine)
 session = scoped_session(Session)
 Markdown(app)
 app.static_folder = 'static'
-
 mail = Mail(app)
 
 

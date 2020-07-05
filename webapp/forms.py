@@ -12,3 +12,6 @@ class PostForm(FlaskForm):
     title = StringField(validators=[DataRequired()])
     post = TextAreaField(validators=[DataRequired()])
     submit = SubmitField('Submit')
+
+class DeleteForm(FlaskForm):
+    delete = SubmitField('Submit')
