@@ -29,7 +29,7 @@
             </td>
             <td>
                 <form method="POST" action="{{ url_for('delete_post', id=post[0])}}">
-                    {{ deleteForm.hidden_tag() }}
+                    {{ delete_form.hidden_tag() }}
                      <input type="submit" class="btn btn-danger" value="Remove Post">
                 </form>
                 <a class="btn btn-primary" href="http://127.0.0.1:5000/edit_post" role="button">Edit Post</a>
