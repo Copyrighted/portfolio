@@ -2,7 +2,7 @@ import datetime, bcrypt, uuid
 from flask import render_template, redirect, url_for, request, flash, session
 from werkzeug.urls import url_parse
 from webapp import app, db
-from webapp.forms import PostForm, LoginForm, DeleteForm
+from webapp.forms import PostForm, LoginForm, DeleteForm, EditPostForm
 from flask_login import current_user, login_user, logout_user, login_required
 from webapp.models import User, Post
 
@@ -30,16 +30,24 @@ def render_publish():
         return redirect(url_for('render_notes'))
     return render_template('publish_post.html', form=form)
 
-@app.route('/edit', methods=['GET', 'POST'])
+@app.route('/edit/<string:id>', methods=['GET'])
 @login_required
-def render_edit():
-    form = PostForm()
+def render_edit(id):
+    form = EditPostForm()
+    post = Post.retrieve_post(id)
+    return render_template('edit_post.html', form=form, post_title=post[0], post_content=post[1], id=id)
+
+@app.route('/submit_edit/<string:id>', methods=['POST'])
+@login_required
+def edit_post(id):
+    form = EditPostForm()
     if form.validate_on_submit():
-        post = Post(id=int(str(uuid.uuid4().int)[:16]),author=session["username"], body=form.post.data,timestamp=datetime.datetime.now().date(), title = form.title.data, user_id=session.get("_user_id"))
-        db.session.add(post)
+        post = Post.query.filter_by(id=id)\
+            .update(dict(title=form.title.data, body=form.post.data, timestamp=datetime.datetime.now().date()))
         db.session.commit()
-        return redirect(url_for('render_notes'))
-    return render_template('publish_post.html', form=form)
+        return redirect(url_for("render_options"))
+    return redirect(url_for("render_main"))
+
 
 @app.route('/delete/<string:id>',methods=['POST'])
 @login_required

@@ -12,27 +12,32 @@
 <div class="col-sm-2 mb-2 mt-4">
     <a class="btn btn-primary" href="http://127.0.0.1:5000/publish_post" role="button">Publish Post</a>
 </div>
-<div class="row justify-content-center">
-<table class="table table-responsive table-bordered table-hover table-sm mt-3">
+<div class="row justify-content-center table-responsive">
+<table class="table table-bordered table-hover table-auto mt-3">
     <thead>
     <tr>
-        <th scope="col">Name</th>
-        <th scope="col">Date</th>
+        <th scope="col">Title</th>
+        <th scope="col">Date Posted</th>
         <th scope="col">Options</th>
     </tr>
     </thead>
     <tbody>
     {% for post in posts %}
-            <th scope="row">{{ post[1] }}</th>
+        <tr>
+            <td>
+                {{ post[1] }}
+            </td>
             <td>
                 {{ post[3].date() }}
             </td>
-            <td>
+            <td class="w-25">
                 <form method="POST" action="{{ url_for('delete_post', id=post[0])}}">
                     {{ delete_form.hidden_tag() }}
-                     <input type="submit" class="btn btn-danger" value="Remove Post">
+                     <input type="submit" class="btn btn-danger" value="Remove Post" role="button">
                 </form>
-                <a class="btn btn-primary" href="http://127.0.0.1:5000/edit_post" role="button">Edit Post</a>
+            </td>
+            <td>
+                <a class="btn btn-primary" href="http://127.0.0.1:5000/edit/{{ post[0] }}" role="button">Edit Post</a>
             </td>
         </tr>
     {% endfor %}
