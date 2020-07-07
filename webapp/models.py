@@ -45,10 +45,6 @@ class Post(db.Model):
         p = session.query(Post).get(post_id)
         return (p.title, p.body, p.timestamp)
 
-
-    def __repr__(self):
-        return '<Post {}>'.format(self.body)
-
 @login.user_loader
 def load_user(id):
     try:
