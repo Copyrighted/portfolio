@@ -49,7 +49,7 @@ def edit_post(id):
     return redirect(url_for("render_main"))
 
 
-@app.route('/delete/<string:id>',methods=['POST'])
+@app.route('/delete/<string:id>', methods=['POST'])
 @login_required
 def delete_post(id):
     form = DeleteForm()

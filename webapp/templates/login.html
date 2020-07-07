@@ -1,21 +1,17 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='/css/login.css') }}">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-    <link href="https://fonts.googleapis.com/css?family=Black+Han+Sans" rel="stylesheet">
-    <title>Login</title>
+{% extends "base.html" %}
 
-</head>
-<body>
+{% block header %}
+    {{ super() }}
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='/css/login.css') }}">
+    <title>Login</title>
+{% endblock %}
+
 
 
 {% block content %}
 <div class = "container-fluid">
     <div class = "row justify-content-center text-center">
         <div class = "col-sm-2">
-
             <h1>Login</h1>
             {% with messages = get_flashed_messages() %}
                 {% if messages %}
@@ -49,5 +45,10 @@
     </div>
 </div>
 {% endblock %}
-</body>
-</html>
+
+{% block navbar %}
+{% endblock %}
+
+{% block footer %}
+    {{ super() }}
+{% endblock %}

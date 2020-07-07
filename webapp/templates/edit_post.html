@@ -1,13 +1,15 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
+{% extends "post_base.html" %}
+
+    {% block header %}
+    {{ super() }}
     <title>Edit a post!</title>
-</head>
-<body>
-<div>
+    {% endblock %}
+
+
+
 
     {% block content %}
+        <div>
     <h1>Hello, {{ current_user.username }}, you're now editing a post</h1>
     <form method="POST" action="{{ url_for("edit_post", id=id) }}">
         {{ form.hidden_tag() }}
@@ -17,19 +19,15 @@
         <label for="summernote"></label><textarea id="summernote" name="post">{{ post_content }}</textarea>
         <p>{{ form.update() }}</p>
     </form>
+        </div>
     {% endblock %}
-</div>
-</body>
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" rel="stylesheet">
-    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 
-    <!-- include summernote css/js -->
-    <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
+
+{% block footer %}
+{{ super() }}
 <script>
     $(document).ready(function () {
         $('#summernote').summernote();
     });
 </script>
-</html>
+{% endblock %}
