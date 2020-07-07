@@ -18,9 +18,9 @@ Install Python 3.x
 
 Select your favorite IDE (I use PyCharm so that is what I'll be doing the instructions in)
 
-git clone https://gitlab.com/Copyrighted/portfolio
+git clone https://github.com/Copyrighted/portfolio
 
-Open project in IDE
+Open project in preferred IDE
 
 Set up Python Virtual Environment, install Flask and other prerequisites
 
