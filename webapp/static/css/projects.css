@@ -68,8 +68,11 @@
 
 }
 
+#nameText {
+    color: white !important;
+}
 
-i.fas and i.fab {
+#navlink {
     color: white !important;
 }
 

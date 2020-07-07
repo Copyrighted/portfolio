@@ -1,8 +1,8 @@
  {% extends "base.html" %}
 
     {% block header %}
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='/css/projects.css') }}">
         {{ super() }}
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='/css/projects.css') }}">
         <title>SchefBlog</title>
     {% endblock %}
 
