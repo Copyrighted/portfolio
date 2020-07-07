@@ -69,15 +69,13 @@
 }
 
 
-a {
-    color: white;
+i.fas and i.fab {
+    color: white !important;
 }
 
 @media all and (max-width: 768px) {
     body {
         font-size: 0.8em;
-
-
 
     }
 }

@@ -1,13 +1,12 @@
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=yes">
+
+{% extends "base.html" %}
+{% block header %}
+    {{ super() }}
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='/css/post_content.css') }}">
     <title>SchefBlog</title>
-</head>
-<body>
-{% extends "base.html" %}
+{% endblock %}
+
+
 {% block content %}
 <div class="container-fluid">
     <div class="row">
@@ -16,11 +15,11 @@
             <p id="intro text">
                 Posted: {{ post_timestamp }}
                 {{ post_body|markdown }}
-
-            </p>
         </div>
-    {% endblock %}
     </div>
 </div>
-</body>
-</html>
+{% endblock %}
+
+{% block footer %}
+    {{ super() }}
+{% endblock %}

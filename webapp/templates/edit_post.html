@@ -6,6 +6,7 @@
 </head>
 <body>
 <div>
+
     {% block content %}
     <h1>Hello, {{ current_user.username }}, you're now editing a post</h1>
     <form method="POST" action="{{ url_for("edit_post", id=id) }}">
