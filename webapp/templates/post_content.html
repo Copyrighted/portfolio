@@ -10,11 +10,13 @@
 {% block content %}
 <div class="container-fluid">
     <div class="row">
-        <div id="welcomeMessage" class="col-xs-8 offset-xs-2 col-md-8 offset-md-2 order-2">
+        <div id="welcomeMessage" class="col-xs-8 offset-xs-2 col-md-8 col-lg-8 offset-md-2 order-2">
             <h1 id="welcomeHeader"><b> {{ post_title }} </b></h1>
             <p id="intro text">
                 Posted: {{ post_timestamp }}
+                <div id="post-text" class="col-lg-8">
                 {{ post_body|markdown }}
+                </div>
         </div>
     </div>
 </div>

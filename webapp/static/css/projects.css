@@ -1,52 +1,14 @@
-
-
-
-
-@media(min-width:768px) {
-    #nav-side-menu {
-        background-color: darkred;
-        position: fixed;
-        right: 0;
-        min-height: 100%;
-    }
-
-    #navbarContents {
-        padding-top: 210%;
-        padding-right: 10%;
-        alignment: center;
-        font-size:25px;
-        padding-bottom:10%;
-    }
-
-    #nameText{
-        padding-right: 30%;
-        font-size:150%;
-        font-family: 'Spectral SC', serif;
-    }
-
-    li {
-        list-style-type: none;
-        font-family: 'Spectral SC', serif;
-    }
-
-    #notesHeader {
-        padding-top: 20%;
-        font-family: 'Source Sans Pro', sans-serif;
-        font-size: 50px;
-    }
-
-    #intro\ text {
-        padding-right: 20%;
-        font-family: 'Source Sans Pro', sans-serif;
-        font-size:30px;
-    }
-}
-
+/* For small screens */
 @media(max-width:768px){
     #nav-side-menu{
         background-color: darkred;
         max-height:30%;
         overflow:hidden;
+    }
+
+    #notesHeader {
+        font-family: 'Source Sans Pro', sans-serif;
+        font-size:240%;
     }
 
     #welcomeMessage{
@@ -58,6 +20,7 @@
 
     #nameText{
         font-family: 'Spectral SC', serif;
+        font-size:70%;
     }
 
     li {
@@ -65,8 +28,123 @@
         text-align: center;
         font-family: 'Spectral SC', serif;
     }
-
 }
+
+@media(min-width:768px) {
+                  #nav-side-menu {
+        background-color: darkred;
+        position: fixed;
+        right: 0;
+        min-height: 100%;
+    }
+
+    #navbarContents {
+        padding-top: 225%;
+        padding-right: 10%;
+        alignment: center;
+        font-size:142%;
+        padding-bottom:10%;
+    }
+
+    #nameText{
+        padding-right: 30%;
+        font-size:141%;
+        font-family: 'Spectral SC', serif;
+    }
+
+    li {
+        list-style-type: none;
+        font-family: 'Spectral SC', serif;
+    }
+
+    #welcomeHeader {
+        padding-top: 20%;
+        font-family: 'Source Sans Pro', sans-serif;
+        font-size: 50px;
+    }
+
+    #intro\ text {
+        padding-right: 20%;
+        font-family: 'Source Sans Pro', sans-serif;
+        font-size:30px;
+    }
+
+    #welcomeMessage {
+        margin-left:30%;
+    }
+
+    #notesHeader {
+        margin-top: 20%;
+        font-size: 75px;
+        position: center;
+        padding-bottom: 10px;
+    }
+
+    #post-link {
+        font-size:23px;
+        margin-top:5px;
+    }
+    }
+
+/* For large PC screens ----------- */
+    @media only screen
+    and (min-width : 1824px) {
+    /* Styles */
+            /* Styles */
+                  #nav-side-menu {
+        background-color: darkred;
+        position: fixed;
+        right: 0;
+        min-height: 100%;
+    }
+
+    #navbarContents {
+        padding-top: 225%;
+        padding-right: 10%;
+        alignment: center;
+        font-size:30px;
+        padding-bottom:10%;
+    }
+
+    #nameText{
+        padding-right: 30%;
+        font-size:35px;
+        font-family: 'Spectral SC', serif;
+    }
+
+    li {
+        list-style-type: none;
+        font-family: 'Spectral SC', serif;
+    }
+
+    #welcomeHeader {
+        padding-top: 20%;
+        font-family: 'Source Sans Pro', sans-serif;
+        font-size: 50px;
+    }
+
+    #intro\ text {
+        padding-right: 20%;
+        font-family: 'Source Sans Pro', sans-serif;
+        font-size:30px;
+    }
+
+    #welcomeMessage {
+        margin-left:30%;
+    }
+
+    #notesHeader {
+        margin-top: 20%;
+        font-size: 75px;
+        position: center;
+        padding-bottom: 10px;
+    }
+
+    #post-link {
+        font-size:23px;
+        margin-top:5px;
+    }
+    }
 
 #nameText {
     color: white !important;
