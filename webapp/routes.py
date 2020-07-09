@@ -74,17 +74,19 @@ def login():
 
     if form.validate_on_submit():
         user = User.query.filter_by(username=form.username.data).first()
+
         if user is None or not bcrypt.checkpw(form.password.data.encode('utf-8'), user.password_hash):
             flash('Invalid username or password')
             return redirect(url_for('login'))
+
         login_user(user, remember=form.remember_me.data)
         next_page = request.args.get('next')
 
         if not next_page or url_parse(next_page).netloc != '':
             next_page = url_for('render_options')
-        flash('Logged in successfully')
         session["username"]=form.username.data
         return redirect(next_page)
+
     return render_template('login.html', title='Sign In', form=form)
 
 @app.route('/logout')
@@ -97,4 +99,19 @@ def logout():
 def get_content(id):
     post_info = Post.retrieve_post(id)
     print(post_info)
-    return render_template("post_content.html", post_title=post_info[0],post_body=post_info[1], post_timestamp=post_info[2].date())
+    return render_template("post_content.html", post_title=post_info[0], post_body=post_info[1], post_timestamp=post_info[2].date())
+
+@app.errorhandler(403)
+def page_not_found(e):
+    # note that we set the 403 status explicitly
+    return render_template('/errors/403.html'), 403
+
+@app.errorhandler(404)
+def page_not_found(e):
+    # note that we set the 404 status explicitly
+    return render_template('/errors/404.html'), 404
+
+@app.errorhandler(500)
+def page_not_found(e):
+    # note that we set the 500 status explicitly
+    return render_template('/errors/500.html'), 500

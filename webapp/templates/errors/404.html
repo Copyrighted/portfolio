@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block header %}
+    {{ super() }}
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='/css/index.css') }}">
+{% endblock %}
+
+{% block content %}
+    <div class="container-fluid">
+    <div class="row">
+        <div id="welcomeMessage" class = "col-xs-8 offset-xs-2 col-md-8 offset-md-2 order-2">
+            <h1 id = "welcomeHeader"><b> Welcome to my site! </b></h1>
+            <p id = "intro text">
+                404! Content not found :(.
+                <a href="{{ url_for('render_main') }}">Let me suggest that you take a vacation from yourself.</a>
+            </p>
+        </div>
+        </div>
+</div>
+{% endblock %}
+
+{% block footer %}
+    {{ super() }}
+{% endblock %}
