@@ -26,7 +26,14 @@ Set up Python Virtual Environment, install Flask and other prerequisites
 
 ## Running the tests
 
--Work in progress-
+To run tests, use 
+
+python -m pytest tests
+
+If you want to run unit tests you could do
+
+python -m pytest --setup-show tests/unit/
+
 
 ### Break down into end to end tests
 
