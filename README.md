@@ -45,7 +45,7 @@ python -m pytest --setup-show tests/unit/
 
 ## Deployment
 
--Work in Progress, probably going to use Docker-
+Current plan is to deploy to a docker container.
 
 ## Built With
 
