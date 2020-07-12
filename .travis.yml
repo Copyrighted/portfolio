@@ -1,9 +1,7 @@
-dist: xenial
+dist: bionic
 language: python
 python:
   - "3.6"
-  - "3.7"
-  - "3.8"
 addons:
   apt:
     packages:
@@ -12,7 +10,7 @@ addons:
 install:
 - sudo python3 -m pip install --upgrade pip
 - sudo apt-get install python3-setuptools
-- sudo pip3 install -r requirements.txt
+- sudo pip install -r requirements.txt
 # command to run tests
 script:
 # unit test
