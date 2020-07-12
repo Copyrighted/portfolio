@@ -9,9 +9,9 @@ addons:
       - "python3"
       - "python3-pip"
 install:
-- sudo pip3 install --upgrade pip
+- sudo python3 -m pip install --upgrade pip
 - sudo pip3 install -r requirements.txt
 # command to run tests
 script:
 # unit test
-- pytest
+- python -m pytest -v
