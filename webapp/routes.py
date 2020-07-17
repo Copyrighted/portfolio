@@ -15,7 +15,7 @@ def render_notes():
     post_list = Post.retrieve_posts()
     posts = []
     for post in post_list:
-        posts.append("<a href='http://localhost:8000{url}' style='color:black;'><b>{title}</b></a>".format(url=url_for("get_content",id=post[0]),title = post[1]))
+        posts.append("<a href='https://tschef.azurewebsites.net{url}' style='color:black;'><b>{title}</b></a>".format(url=url_for("get_content",id=post[0]),title = post[1]))
     return render_template('projects.html', posts=posts)
 
 
