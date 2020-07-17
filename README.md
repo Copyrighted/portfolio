@@ -12,6 +12,8 @@ Python 3.x
 
 Flask
 
+Docker
+
 ### Installing
 
 Install Python 3.x
