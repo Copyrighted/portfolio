@@ -83,8 +83,8 @@ Select the docker option when creating the Application
 * [Summernote](https://summernote.org/) - Markdown Editor used
 * [Jinja2](https://jinja.palletsprojects.com/en/2.11.x/) - Jinja2 used for templating
 * [Bcrypt](http://bcrypt.sourceforge.net/) - Bcrypt used to salt/hash passwords
-* [Docker] (https://www.docker.com/) - Docker used to make images and quickly deploy application
-* [Azure] (https://azure.com) - Azure used to host container made from Docker Image
+* [Docker](https://www.docker.com/) - Docker used to make images and quickly deploy application
+* [Azure](https://azure.com) - Azure used to host container made from Docker Image
 
 ## Authors
 
