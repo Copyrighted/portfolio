@@ -39,13 +39,41 @@ python -m pytest --setup-show tests/unit/
 
 -Work in progress-
 
-### And coding style tests
-
--Work in progress-
-
 ## Deployment
 
-Current plan is to deploy to a docker container.
+### Deployment on Azure
+
+#### Get an Azure Subscription
+
+#### Create a resource group in Azure
+
+#### Create an Azure Container Registry
+Enable admin rights in your ACR
+
+#### Login to your Azure container registry
+
+docker login <azure_container_registry_name>
+
+#### Create a docker image using the Dockerfile
+
+cd ~/path/to/portfolio/folder
+
+docker build . -t blog:latest
+
+#### Tag the image
+
+docker tag blog <azure_container_registry_name>/blog
+
+#### Push the image to your Azure Container Registry
+
+docker push <azure_container_registry_name>/blog
+
+#### Create web app in App Services in Azure
+
+Select the docker option when creating the Application
+
+#### You've deployed the application!
+
 
 ## Built With
 
@@ -55,6 +83,8 @@ Current plan is to deploy to a docker container.
 * [Summernote](https://summernote.org/) - Markdown Editor used
 * [Jinja2](https://jinja.palletsprojects.com/en/2.11.x/) - Jinja2 used for templating
 * [Bcrypt](http://bcrypt.sourceforge.net/) - Bcrypt used to salt/hash passwords
+* [Docker](https://www.docker.com/) - Docker used to make images and quickly deploy application
+* [Azure](https://azure.com) - Azure used to host container made from Docker Image
 
 ## Authors
 
