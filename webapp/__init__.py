@@ -10,6 +10,7 @@ from flask_migrate import Migrate
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker, scoped_session
 
+
 migrate = Migrate(compare_type=True)
 app = Flask(__name__)
 migrate.init_app(app)
@@ -29,7 +30,5 @@ Session.configure(bind=engine)
 session = scoped_session(Session)
 Markdown(app)
 app.static_folder = 'static'
-mail = Mail(app)
-
 
 from webapp import routes, models

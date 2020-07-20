@@ -2,7 +2,7 @@ import datetime, bcrypt, uuid
 from flask import render_template, redirect, url_for, request, flash, session
 from werkzeug.urls import url_parse
 from webapp import app, db
-from webapp.forms import PostForm, LoginForm, DeleteForm, EditPostForm
+from webapp.forms import PostForm, LoginForm, DeleteForm, EditPostForm, RegistrationForm
 from flask_login import current_user, login_user, logout_user, login_required
 from webapp.models import User, Post
 
@@ -15,7 +15,7 @@ def render_notes():
     post_list = Post.retrieve_posts()
     posts = []
     for post in post_list:
-        posts.append("<a href='https://tschef.azurewebsites.net{url}' style='color:black;'><b>{title}</b></a>".format(url=url_for("get_content",id=post[0]),title = post[1]))
+        posts.append("<a href='http://localhost:5000{url}' style='color:black;'><b>{title}</b></a>".format(url=url_for("get_content",id=post[0]),title = post[1]))
     return render_template('projects.html', posts=posts)
 
 
@@ -100,6 +100,21 @@ def get_content(id):
     post_info = Post.retrieve_post(id)
     print(post_info)
     return render_template("post_content.html", post_title=post_info[0], post_body=post_info[1], post_timestamp=post_info[2].date())
+
+@app.route('/register', methods=['GET', 'POST'])
+def register():
+    if current_user.is_authenticated:
+        return redirect(url_for('dashboard'))
+    form = RegistrationForm()
+    if form.validate_on_submit():
+        # user = User(username=form.username.data, email=form.email.data)
+        # user.set_password(form.password.data)
+        # db.session.add(user)
+        # db.session.commit()
+        # flash('Congratulations, you are now a registered user!')
+        flash('Sorry, registration is currently blocked right now.')
+        return redirect(url_for('login'))
+    return render_template('registration.html', title='Register', form=form)
 
 @app.errorhandler(403)
 def page_not_found(e):

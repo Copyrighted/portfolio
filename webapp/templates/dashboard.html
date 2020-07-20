@@ -9,7 +9,7 @@
 {% block content %}
 <div class="container">
 <div class="col-sm-2 mb-2 mt-4">
-    <a class="btn btn-primary" href="http://localhost:8000/publish_post" role="button">Publish Post</a>
+    <a class="btn btn-primary" href="http://localhost:5000/publish_post" role="button">Publish Post</a>
 </div>
 <div class="row justify-content-center table-responsive">
 <table class="table table-bordered table-hover table-auto mt-3">
@@ -36,7 +36,7 @@
                 </form>
             </td>
             <td>
-                <a class="btn btn-primary" href="https://tschef.azurewebsites.net/edit/{{ post[0] }}" role="button">Edit Post</a>
+                <a class="btn btn-primary" href="http://localhost:5000/edit/{{ post[0] }}" role="button">Edit Post</a>
             </td>
         </tr>
     {% endfor %}
