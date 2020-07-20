@@ -12,6 +12,8 @@ Python 3.x
 
 Flask
 
+Docker
+
 ### Installing
 
 Install Python 3.x
@@ -33,11 +35,6 @@ python -m pytest tests
 If you want to run unit tests you could do
 
 python -m pytest --setup-show tests/unit/
-
-
-### Break down into end to end tests
-
--Work in progress-
 
 ## Deployment
 
