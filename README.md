@@ -10,8 +10,6 @@ Users can create, update and delete posts.
 
 Python 3.x
 
-Flask
-
 Docker
 
 ### Installing
@@ -24,7 +22,9 @@ git clone https://github.com/Copyrighted/portfolio
 
 Open project in preferred IDE
 
-Set up Python Virtual Environment, install Flask and other prerequisites
+Set up Python Virtual Environment
+
+To install requirements do pip install -r requirements.txt
 
 ## Running the tests
 
