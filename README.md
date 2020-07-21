@@ -1,8 +1,7 @@
-# Flask Blog Website
+# Flask Blog Site
 
-Personal flask blog that supports registering/login of an admin user (can easily expand this to non-admin users).
-
-Users can create, update and delete posts.
+Blog with authentication, authorization, and error handling. Allows users to create, update and delete posts.
+Uses PyTest for unit testing. Has CI/CD for automated testing and deployment. Deployed using Azure and Docker.
 
 ## Getting Started
 
