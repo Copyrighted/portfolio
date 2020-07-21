@@ -8,6 +8,8 @@ RUN pip install --upgrade pip
 
 RUN pip install -r requirements.txt
 
+RUN pip install gunicorn
+
 COPY . .
 
 EXPOSE 5000
