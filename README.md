@@ -26,7 +26,7 @@ Set up Python Virtual Environment
 
 To install requirements do pip install -r requirements.txt
 
-## Running the tests
+## Manually running the tests
 
 To run tests, use 
 
@@ -35,6 +35,12 @@ python -m pytest tests
 If you want to run unit tests you could do
 
 python -m pytest --setup-show tests/unit/
+
+## Using Travis CI to run Tests
+
+Connect your github account to Travis-CI.org
+
+The .travis.yaml file will take care of the tests.
 
 ## Deployment
 
