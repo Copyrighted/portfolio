@@ -3,7 +3,7 @@
 # Flask Blog Site
 
 Blog with authentication, authorization, and error handling. Allows users to create, update and delete posts.
-Uses PyTest for unit testing. Has CI/CD for automated testing and deployment. Deployed using Azure and Docker.
+Uses PyTest for unit testing. Uses Travis CI for automated testing. Deployed using Azure and Docker.
 
 ## Getting Started
 
