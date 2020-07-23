@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/Copyrighted/portfolio.svg?branch=master)](https://travis-ci.org/Copyrighted/portfolio)
+
 # Flask Blog Site
 
 Blog with authentication, authorization, and error handling. Allows users to create, update and delete posts.
