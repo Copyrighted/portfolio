@@ -29,7 +29,7 @@ To install requirements do pip install -r requirements.txt
 
 ## Manually running the tests
 
-To run tests, use 
+To run all tests, use 
 
 python -m pytest tests
 
